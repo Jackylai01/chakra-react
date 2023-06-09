@@ -9,10 +9,14 @@ const Dashboard = () => {
     color: 'white',
     my: '10px',
     textAlign: 'center',
+    ':hover': {
+      color: 'black',
+      bg: 'yellow.400',
+    },
   };
 
   return (
-    <Container as="section" maxWidth="100%">
+    <Container as="section" maxWidth="60%">
       <Heading m="30px" p="10px">
         Chakra UI Componets
       </Heading>
