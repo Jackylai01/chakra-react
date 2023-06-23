@@ -1,43 +1,60 @@
-import { Box, Container, Heading, Text } from '@chakra-ui/react';
+import { EditIcon, ViewIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
+  SimpleGrid,
+  Text,
+} from '@chakra-ui/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { tasks } from '../data/db';
 
 const Dashboard = () => {
-  const boxStyles = {
-    p: '10px',
-    bg: 'purple.400',
-    color: 'white',
-    my: '10px',
-    textAlign: 'center',
-    ':hover': {
-      color: 'black',
-      bg: 'yellow.400',
-    },
-  };
-
   return (
-    <Container as="section" maxWidth="60%">
-      <Heading m="30px" p="10px">
-        Chakra UI Componets
-      </Heading>
-      <Text color="blue.300">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique esse
-        molestias ducimus itaque enim laudantium sunt impedit distinctio illo.
-        Eaque non voluptatum nemo perferendis quasi? Impedit animi velit rerum
-        magni!
-      </Text>
-      <Box my="30px" p="30px" bg="orange" as="section">
-        <Text color="blackAlpha.500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias commodi
-          ipsum eius molestias aut eos praesentium hic consequatur et aperiam
-          voluptatem dicta eaque, at neque adipisci, velit, quam impedit
-          doloribus!
-        </Text>
-      </Box>
-      <Box sx={boxStyles} as={Link} to="/profile">
-        JACKY LAI
-      </Box>
-    </Container>
+    <>
+      <SimpleGrid spacing={10} minChildWidth="300px">
+        {tasks &&
+          tasks.map(task => (
+            <Card key={task.id} borderTop="8px" borderColor="purple.300">
+              <CardHeader>
+                <Flex gap={5}>
+                  <Box as="main" w="50px" h="50px">
+                    <Text>AV</Text>
+                  </Box>
+                  <HStack spacing={2}>
+                    <Heading as="h3" size="sm">
+                      {task?.title}
+                    </Heading>
+                    <Text>by {task?.author}</Text>
+                  </HStack>
+                </Flex>
+              </CardHeader>
+
+              <CardBody color="gray.400">
+                <Text>{task?.description}</Text>
+              </CardBody>
+              <Divider borderColor="gray.200" />
+              <CardFooter>
+                <HStack>
+                  <Button variant="ghost" leftIcon={<ViewIcon />}>
+                    Watch
+                  </Button>
+                  <Button variant="ghost" leftIcon={<EditIcon />}>
+                    Comment
+                  </Button>
+                </HStack>
+              </CardFooter>
+            </Card>
+          ))}
+      </SimpleGrid>
+    </>
   );
 };
 

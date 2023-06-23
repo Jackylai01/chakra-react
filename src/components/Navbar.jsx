@@ -18,7 +18,7 @@ import React from 'react';
 const Navbar = () => {
   return (
     <>
-      <Flex as="nav" p="10px" alignItems="center">
+      <Flex as="nav" p="10px" alignItems="center" marginBottom="3rem">
         <Heading as="h1">Jacky Lai</Heading>
         <Spacer />
         <HStack spacing="20px">
