@@ -11,7 +11,7 @@ const Sidebar = () => {
         </NavLink>
       </ListItem>
       <ListItem>
-        <NavLink to="/">
+        <NavLink to="/create">
           <ListIcon as={EditIcon} />
           New Task
         </NavLink>

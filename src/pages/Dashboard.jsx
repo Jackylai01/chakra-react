@@ -1,5 +1,6 @@
 import { EditIcon, ViewIcon } from '@chakra-ui/icons';
 import {
+  Avatar,
   Box,
   Button,
   Card,
@@ -22,22 +23,20 @@ const Dashboard = () => {
       <SimpleGrid spacing={10} minChildWidth="300px">
         {tasks &&
           tasks.map(task => (
-            <Card key={task.id} borderTop="8px" borderColor="purple.300">
+            <Card key={task?.id} borderTop="8px" borderColor="purple.300">
               <CardHeader>
                 <Flex gap={5}>
-                  <Box as="main" w="50px" h="50px">
-                    <Text>AV</Text>
-                  </Box>
-                  <HStack spacing={2}>
+                  <Avatar src={task?.img} />
+                  <Box as="main">
                     <Heading as="h3" size="sm">
                       {task?.title}
                     </Heading>
-                    <Text>by {task?.author}</Text>
-                  </HStack>
+                    <Text>By {task?.author}</Text>
+                  </Box>
                 </Flex>
               </CardHeader>
 
-              <CardBody color="gray.400">
+              <CardBody color="brand.400">
                 <Text>{task?.description}</Text>
               </CardBody>
               <Divider borderColor="gray.200" />

@@ -5,19 +5,22 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-// layouts and pages
+
 import RootLayout from './layouts/RootLayout';
 import Create from './pages/Create';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
+
+/**執行api */
+import { createAction } from './pages/Create';
 
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route path="/grid" element={<Dashboard />} />
-      <Route path="create" element={<Create />} />
-      <Route path="profile" element={<Profile />} />
+      <Route path="/create" element={<Create />} action={createAction} />
+      <Route path="/profile" element={<Profile />} />
     </Route>
   )
 );
