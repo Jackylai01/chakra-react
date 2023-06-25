@@ -1,4 +1,9 @@
-import { AtSignIcon, CalendarIcon, EditIcon } from '@chakra-ui/icons';
+import {
+  AtSignIcon,
+  CalendarIcon,
+  EditIcon,
+  TriangleUpIcon,
+} from '@chakra-ui/icons';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
@@ -20,6 +25,12 @@ const Sidebar = () => {
         <NavLink to="/profile">
           <ListIcon as={AtSignIcon} />
           Profile
+        </NavLink>
+      </ListItem>
+      <ListItem>
+        <NavLink to="/toggle">
+          <ListIcon as={TriangleUpIcon} />
+          Toggle
         </NavLink>
       </ListItem>
     </List>

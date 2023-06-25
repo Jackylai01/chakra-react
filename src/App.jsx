@@ -10,6 +10,7 @@ import RootLayout from './layouts/RootLayout';
 import Create from './pages/Create';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
+import Toggle from './pages/Toggle';
 
 /**執行api */
 import { createAction } from './pages/Create';
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/grid" element={<Dashboard />} />
       <Route path="/create" element={<Create />} action={createAction} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/toggle" element={<Toggle />} />
     </Route>
   )
 );
